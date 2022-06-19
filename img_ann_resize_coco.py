@@ -56,6 +56,7 @@ def bbox_resize(img_dir, file_name, bbox, label, resize_wh):
     image = Chitra(path, tmp_bbox, label)
     image.resize_image_with_bbox(resize_wh)
     
+    image.image.
 
     return [image.bboxes.bboxes[0].x1_int, image.bboxes.bboxes[0].y1_int, int(image.bboxes.bboxes[0].width), int(image.bboxes.bboxes[0].height)]
 
