@@ -47,18 +47,21 @@ from regex import I
 #     ymax = int(np.round(origBottom * y_scale))
 #     # Box.drawBox([[1, 0, x, y, xmax, ymax]], img)
 #     drawBox([[1, 0, x, y, xmax, ymax]], img)
-def bbox_resize(file_name, bbox, label, resize_wh):
-    path = osp.join('./CustomData/train/images', file_name)
+def resize_image_save(image, path):
+    pass
+
+def bbox_resize(img_dir, file_name, bbox, label, resize_wh):
+    path = osp.join(img_dir, file_name)
     tmp_bbox = [[bbox[0], bbox[1], bbox[0]+bbox[2], bbox[1]+bbox[3]]]
     image = Chitra(path, tmp_bbox, label)
     image.resize_image_with_bbox(resize_wh)
     
-    image
 
-    return image.bboxes
+    return [image.bboxes.bboxes[0].x1_int, image.bboxes.bboxes[0].y1_int, int(image.bboxes.bboxes[0].width), int(image.bboxes.bboxes[0].height)]
 
 if __name__ == "__main__":
     #cvTest()
+    img_dir = './CustomData/train/images'
     input_json = './CustomData/train/label/Train.json'
     resize_w, resize_h = 640, 480
 
@@ -83,7 +86,7 @@ if __name__ == "__main__":
         for ann_data in dataset['annotations']:
             if img_data['id'] == ann_data['image_id']:
                 print(ann_data['bbox'])
-                print(bbox_resize(img_data['file_name'], ann_data['bbox'], ann_data['category_id'], (resize_w, resize_h)))
+                print(bbox_resize(img_dir, img_data['file_name'], ann_data['bbox'], ann_data['category_id'], (resize_w, resize_h)))
                 print('-'*50)
         
 
