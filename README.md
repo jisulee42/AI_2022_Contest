@@ -1,4 +1,4 @@
-# ![image-20220621171158420](C:\Users\leeji\AppData\Roaming\Typora\typora-user-images\image-20220621171158420.png)
+# ![image-20220621171158420](./resource/result.png)
 
 https://aichallenge.or.kr/competition/detail/1  2022년 인공지능 온라인 경진대회
 
