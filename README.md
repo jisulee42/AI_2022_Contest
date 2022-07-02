@@ -89,6 +89,7 @@
     * 0.0192291984 
 
   ![[크기변환]output](./resource/result.png)
+  
 
 
 
